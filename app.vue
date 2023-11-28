@@ -2,8 +2,7 @@
   <div class="flex gap-4 items-center p-4 border-b border-gray-200">
     <i class="fa-regular fa-mask"></i>
 
-    <NuxtLink to="/" class="text-indigo-500 font-semibold">Home</NuxtLink>
-    <h1 class="text-indigo-500 font-semibold">Home Heroes</h1>
+    <NuxtLink to="/" class="text-indigo-500 font-semibold">Home Heroes</NuxtLink>
 
     <span class="text-gray-300">/</span>
     <div class="flex items-center gap-2">
@@ -16,7 +15,10 @@
     </div>
   </div>
   <div class="p-6">
-    <NuxtPage />
+    <div>
+      <NuxtLoadingIndicator /> <!-- here -->
+      <NuxtPage />
+    </div>
   </div>
  
 </template>
