@@ -7,7 +7,7 @@
     "dev": "nuxt dev --dotenv .env.development.local",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
+    "postinstall": "prisma generate && nuxt prepare",
     "prisma-dev": "dotenv -e .env.development.local prisma migrate dev"
   },
   "devDependencies": {
