@@ -1,5 +1,5 @@
 
-Hook up a database of some kind.
+<!-- Hook up a database of some kind.
 
 
 Add hero (basics)
@@ -12,8 +12,12 @@ Edit hero (basics)
 
 Home page 
 - Show heroes
-- All a new hero to be added
+- All a new hero to be added -->
 
+
+Add last name 
+Add cell phone
+Add ID number
 
 ---------------------------
 

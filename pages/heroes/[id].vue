@@ -1,53 +1,13 @@
 <template>
-  <div class="">
-    <ul class="">
-      <li><span class="font-bold">Real Name:</span> {{ hero.realName }}</li>
-      <li>
-        <span class="font-bold">Superpowers:</span>
-        {{ hero.superpowers.join(", ") }}
-      </li>
-      <li>
-        <span class="font-bold">Weaknesses:</span>
-        {{ hero.weaknesses.join(", ") }}
-      </li>
-    </ul>
+  <div v-if="hero" class="">
+      {{ hero.name }}
+      {{ hero.email }}
   </div>
 </template>
 
-<script>
-import { ref, onMounted } from "vue";
+<script setup lang="ts">
+import type { Hero } from '@/pages/heroes/types';
 
-export default {
-  setup(props) {
-    const hero = ref({
-      name: "",
-      description: "",
-      realName: "",
-      superpowers: [],
-      weaknesses: [],
-      picture: "",
-    });
-
-    onMounted(async () => {
-      // Fetch hero data from API using props.id
-      const data = {
-        name: "Superman",
-        description: "The Man of Steel",
-        realName: "Clark Kent",
-        superpowers: ["Super strength", "Flight", "Heat vision"],
-        weaknesses: ["Kryptonite", "Magic"],
-        picture: "https://via.placeholder.com/300x400",
-      };
-      hero.value = data;
-    });
-
-    return {
-      hero,
-    };
-  },
-};
+const route = useRoute()
+const { data: hero } = await useFetch<Hero>(`/api/hero/${route.params.id}`);
 </script>
-
-<style>
-/* Add your tailwind styles here */
-</style>

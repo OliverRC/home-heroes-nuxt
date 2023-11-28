@@ -73,3 +73,26 @@ bun run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+
+
+## Vercel
+
+install Vercel CLI
+
+```
+npm i -g vercel
+```
+
+Connect to a project
+
+```
+vercel link
+```
+
+Pull your latest environment variables
+
+```
+vercel env pull .env.development.local
+```
+
+
