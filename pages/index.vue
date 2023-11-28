@@ -1,11 +1,11 @@
 <template>
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
     <NuxtLink v-for="hero in heroes" :key="hero.id" :to="'/heroes/' + hero.id">
-      <div class="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer">
-        <img :src="hero.image" :alt="hero.name" class="w-full h-48 object-cover">
+      <div class="">
+        <!-- <img :src="hero.image" :alt="hero.name" class="w-full h-48 object-cover"> -->
         <div class="p-4">
-          <h2 class="text-xl font-semibold text-gray-800">{{ hero.name }}</h2>
-          <p class="text-gray-600">{{ hero.description }}</p>
+          <h2 class="">{{ hero.name }}</h2>
+          <p class="">{{ hero.description }}</p>
         </div>
       </div>
     </NuxtLink>
