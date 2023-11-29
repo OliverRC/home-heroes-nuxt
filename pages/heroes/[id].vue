@@ -1,7 +1,7 @@
 <template>
   <div v-if="hero" class="">
-      {{ hero.name }}
-      {{ hero.email }}
+      {{ hero.firstName }} {{ hero.lastName }}
+      {{ hero.cellphone }} - {{ hero.email }}
   </div>
 </template>
 

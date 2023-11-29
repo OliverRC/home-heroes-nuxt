@@ -5,7 +5,7 @@
       <div class="">
         <!-- <img :src="hero.image" :alt="hero.name" class="w-full h-48 object-cover"> -->
         <div class="p-4">
-          <h2 class="">{{ hero.name }}</h2>
+          <h2 class="">{{ hero.firstName }} {{ hero.lastName }}</h2>
           <p class="">{{ hero.email }}</p>
         </div>
       </div>

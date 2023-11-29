@@ -1,8 +1,10 @@
 -- CreateTable
 CREATE TABLE "Hero" (
     "id" SERIAL NOT NULL,
-    "email" TEXT NOT NULL,
-    "name" TEXT,
+    "firstName" TEXT NOT NULL,
+    "lastName" TEXT NOT NULL,
+    "cellPhone" TEXT,
+    "email" TEXT,
 
     CONSTRAINT "Hero_pkey" PRIMARY KEY ("id")
 );

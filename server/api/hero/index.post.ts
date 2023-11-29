@@ -8,7 +8,9 @@ export default defineEventHandler(async (event) => {
 
   const hero = await prisma.hero.create({
     data: {
-      name: body.name,
+      firstName: body.firstName,
+      lastName: body.lastName,
+      cellPhone: body.cellPhone,
       email: body.email,
     },
   })
