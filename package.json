@@ -7,17 +7,19 @@
     "dev": "nuxt dev --dotenv .env.development.local",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "prisma generate && nuxt prepare",
-    "prisma-dev": "dotenv -e .env.development.local prisma migrate dev"
+    "postinstall": "nuxt prepare",
+    "db:generate": "drizzle-kit generate:pg",
+    "db:migrate": "tsx ./server/database/migrate.ts"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
-    "@nuxtjs/tailwindcss": "^6.8.0",
-    "nuxt": "^3.8.2",
-    "prisma": "^5.6.0"
+    "@nuxtjs/tailwindcss": "^6.12.0",
+    "drizzle-kit": "^0.20.17",
+    "nuxt": "^3.11.2",
+    "tsx": "^4.7.2"
   },
   "dependencies": {
-    "@prisma/client": "^5.6.0",
-    "@vercel/postgres": "^0.5.1"
+    "@neondatabase/serverless": "^0.9.1",
+    "drizzle-orm": "^0.29.5"
   }
 }

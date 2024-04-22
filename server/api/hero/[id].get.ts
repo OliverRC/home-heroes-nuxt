@@ -1,5 +1,5 @@
-import { PrismaClient } from '@prisma/client'
-const prisma = new PrismaClient()
+import { eq } from 'drizzle-orm';
+import { tables, useDrizzle } from '~/server/utils/useDrizzle'
 
 export default defineEventHandler(async (event) => {
 
@@ -18,11 +18,20 @@ export default defineEventHandler(async (event) => {
     })
   }
 
-  const heroes = await prisma.hero.findUnique({
-    where: {
-      id: id
-    }
-  });
+  const heroes = await useDrizzle()
+  .select()
+  .from(tables.heroes)
+  .where(eq(tables.heroes.id, id))
+  .limit(1);
 
-  return heroes;
+  if(heroes.length === 0){
+    throw createError({
+      statusCode: 404,
+      statusMessage: 'Hero not found',
+    })
+  }
+
+  var hero = heroes[0];
+
+  return hero;
 })

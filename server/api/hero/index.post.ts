@@ -1,19 +1,10 @@
-import { PrismaClient } from '@prisma/client'
-
-const prisma = new PrismaClient()
+import { tables, useDrizzle } from '~/server/utils/useDrizzle';
 
 export default defineEventHandler(async (event) => {
 
   const body = await readBody(event)
 
-  const hero = await prisma.hero.create({
-    data: {
-      firstName: body.firstName,
-      lastName: body.lastName,
-      cellPhone: body.cellPhone,
-      email: body.email,
-    },
-  })
+  const hero = await useDrizzle().insert(tables.heroes).values(body).returning();;
 
   return hero;
 })

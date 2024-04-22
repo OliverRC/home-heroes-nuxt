@@ -1,32 +1,34 @@
 <template>
   <form @submit.prevent="add">
-    <div>
-    <input type="text" v-model="firstName" class="border border-gray-800" />
-    <input type="text" v-model="lastName" class="border border-gray-800" />
+    <div class="flex flex-col max-w-96 gap-4">
+      <label>First Name</label>
+      <input type="text" v-model="firstName" class="border border-gray-800" />
 
-    ---
+      <label>Last Name</label>
+      <input type="text" v-model="lastName" class="border border-gray-800" />
 
-    <input type="tel" v-model="cellPhone" class="border border-gray-800" />
-    <input type="email" v-model="email" class="border border-gray-800" />
+      <label>Cell Phone</label>
+      <input type="tel" v-model="cellPhone" class="border border-gray-800" />
 
-    <button type="submit">Add</button>
-  </div>
+      <label>Email</label>
+      <input type="email" v-model="email" class="border border-gray-800" />
+
+      <button type="submit">Add</button>
+    </div>
   </form>
 </template>
 
 <script setup lang="ts">
+const firstName = ref("");
+const lastName = ref("");
+const cellPhone = ref("");
+const email = ref("");
 
-const firstName = ref('')
-const lastName = ref('')
-const cellPhone = ref('')
-const email = ref('')
-
-const { data } = await useFetch('/api/hero');
-console.log(data.value);
+const { data } = await useFetch("/api/hero");
 
 const add = async () => {
-  const { data } = await useFetch('/api/hero', {
-    method: 'POST',
+  const { data } = await useFetch("/api/hero", {
+    method: "POST",
     body: {
       firstName: firstName.value,
       lastName: lastName.value,
@@ -34,6 +36,5 @@ const add = async () => {
       email: email.value,
     },
   });
-  console.log(data.value);
 };
 </script>
