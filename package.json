@@ -4,12 +4,13 @@
   "type": "module",
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev --dotenv .env.development.local",
+    "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "db:generate": "drizzle-kit generate:pg",
-    "db:migrate": "tsx ./server/database/migrate.ts"
+    "db:migrate": "tsx ./server/database/migrate.ts",
+    "deploy": "tsx ./server/database/migrate.ts && nuxt"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
@@ -20,6 +21,7 @@
   },
   "dependencies": {
     "@neondatabase/serverless": "^0.9.1",
-    "drizzle-orm": "^0.29.5"
+    "drizzle-orm": "^0.29.5",
+    "pg": "^8.11.5"
   }
 }
