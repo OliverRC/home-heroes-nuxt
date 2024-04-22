@@ -33,12 +33,7 @@
 
       <div className="grid w-full max-w-sm items-center gap-1.5">
         <Label htmlFor="email">Email</Label>
-        <Input
-          type="email"
-          id="email"
-          v-model="email"
-          placeholder="Email"
-        />
+        <Input type="email" id="email" v-model="email" placeholder="Email" />
       </div>
 
       <Button type="submit">Add</Button>
@@ -49,7 +44,12 @@
 <script setup lang="ts">
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
+
+import { useToast } from "@/components/ui/toast/use-toast";
+import type { Hero } from "@/pages/heroes/types";
+
+const { toast } = useToast();
 
 const firstName = ref("");
 const lastName = ref("");
@@ -57,14 +57,22 @@ const cellPhone = ref("");
 const email = ref("");
 
 const add = async () => {
-  const { data } = await useFetch("/api/hero", {
+  const request = {
+    firstName: firstName.value,
+    lastName: lastName.value,
+    cellPhone: cellPhone.value,
+    email: email.value,
+  };
+
+  const { data: hero } = await useFetch<Hero>("/api/hero", {
     method: "POST",
-    body: {
-      firstName: firstName.value,
-      lastName: lastName.value,
-      cellPhone: cellPhone.value,
-      email: email.value,
-    },
+    body:request,
   });
+
+  toast({
+    description: "Hero added successfully",
+  });
+
+  await navigateTo(`/heroes/${hero.value.id}`);
 };
 </script>
