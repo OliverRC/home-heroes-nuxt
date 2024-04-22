@@ -5,14 +5,7 @@
     <NuxtLink to="/" class="text-indigo-500 font-semibold">Home Heroes</NuxtLink>
 
     <span class="text-gray-300">/</span>
-    <div class="flex items-center gap-2">
-      <ul>
-        <li v-for="hero in heroes" :key="hero.name">
-          {{ hero.name }}
-        </li>
-      </ul>
-      <i class="fa-solid fa-angles-up-down text-gray-400"></i>
-    </div>
+    <span>My Home</span>
   </div>
   <div class="p-6">
     <div>
@@ -22,9 +15,3 @@
   </div>
  
 </template>
-
-<script setup lang="ts">
-const heroes = ref([{
-  name: "Patricia Lebsack",
-}]);
-</script>

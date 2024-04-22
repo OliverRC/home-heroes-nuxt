@@ -1,30 +1,60 @@
 <template>
   <form @submit.prevent="add">
     <div class="flex flex-col max-w-96 gap-4">
-      <label>First Name</label>
-      <input type="text" v-model="firstName" class="border border-gray-800" />
+      <div className="grid w-full max-w-sm items-center gap-1.5">
+        <Label htmlFor="firstName">First Name</Label>
+        <Input
+          type="firstName"
+          id="firstName"
+          v-model="firstName"
+          placeholder="First Name"
+        />
+      </div>
 
-      <label>Last Name</label>
-      <input type="text" v-model="lastName" class="border border-gray-800" />
+      <div className="grid w-full max-w-sm items-center gap-1.5">
+        <Label htmlFor="surname">Surname</Label>
+        <Input
+          type="surname"
+          id="surname"
+          v-model="lastName"
+          placeholder="Surname"
+        />
+      </div>
 
-      <label>Cell Phone</label>
-      <input type="tel" v-model="cellPhone" class="border border-gray-800" />
+      <div className="grid w-full max-w-sm items-center gap-1.5">
+        <Label htmlFor="cellPhone">Cell Phone</Label>
+        <Input
+          type="cellPhone"
+          id="cellPhone"
+          v-model="cellPhone"
+          placeholder="Cell Phone"
+        />
+      </div>
 
-      <label>Email</label>
-      <input type="email" v-model="email" class="border border-gray-800" />
+      <div className="grid w-full max-w-sm items-center gap-1.5">
+        <Label htmlFor="email">Email</Label>
+        <Input
+          type="email"
+          id="email"
+          v-model="email"
+          placeholder="Email"
+        />
+      </div>
 
-      <button type="submit">Add</button>
+      <Button type="submit">Add</Button>
     </div>
   </form>
 </template>
 
 <script setup lang="ts">
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button"
+
 const firstName = ref("");
 const lastName = ref("");
 const cellPhone = ref("");
 const email = ref("");
-
-const { data } = await useFetch("/api/hero");
 
 const add = async () => {
   const { data } = await useFetch("/api/hero", {
