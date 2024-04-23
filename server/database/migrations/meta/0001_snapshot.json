@@ -1,0 +1,217 @@
+{
+  "id": "a4f55e46-b405-49cf-bbeb-801d9decb561",
+  "prevId": "4e22b167-8e8f-4440-9cb5-879159d9e9db",
+  "version": "5",
+  "dialect": "pg",
+  "tables": {
+    "Employment": {
+      "name": "Employment",
+      "schema": "",
+      "columns": {
+        "heroId": {
+          "name": "heroId",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "startDate": {
+          "name": "startDate",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "Employment_heroId_Heroes_id_fk": {
+          "name": "Employment_heroId_Heroes_id_fk",
+          "tableFrom": "Employment",
+          "tableTo": "Heroes",
+          "columnsFrom": [
+            "heroId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "EmploymentItems": {
+      "name": "EmploymentItems",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "heroId": {
+          "name": "heroId",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "item": {
+          "name": "item",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "quantity": {
+          "name": "quantity",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "rate": {
+          "name": "rate",
+          "type": "numeric(19, 6)",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "EmploymentItems_heroId_Heroes_id_fk": {
+          "name": "EmploymentItems_heroId_Heroes_id_fk",
+          "tableFrom": "EmploymentItems",
+          "tableTo": "Heroes",
+          "columnsFrom": [
+            "heroId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "Heroes": {
+      "name": "Heroes",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "firstName": {
+          "name": "firstName",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "lastName": {
+          "name": "lastName",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "knownAs": {
+          "name": "knownAs",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "idNumber": {
+          "name": "idNumber",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "dateOfBirth": {
+          "name": "dateOfBirth",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "cellPhone": {
+          "name": "cellPhone",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "email": {
+          "name": "email",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "Leave": {
+      "name": "Leave",
+      "schema": "",
+      "columns": {
+        "heroId": {
+          "name": "heroId",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "paid": {
+          "name": "paid",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "sick": {
+          "name": "sick",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "unpaid": {
+          "name": "unpaid",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "familyResponsibility": {
+          "name": "familyResponsibility",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "Leave_heroId_Heroes_id_fk": {
+          "name": "Leave_heroId_Heroes_id_fk",
+          "tableFrom": "Leave",
+          "tableTo": "Heroes",
+          "columnsFrom": [
+            "heroId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}
