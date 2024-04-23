@@ -21,21 +21,6 @@
         />
       </div>
 
-      <div className="grid w-full max-w-sm items-center gap-1.5">
-        <Label htmlFor="cellPhone">Cell Phone</Label>
-        <Input
-          type="cellPhone"
-          id="cellPhone"
-          v-model="cellPhone"
-          placeholder="Cell Phone"
-        />
-      </div>
-
-      <div className="grid w-full max-w-sm items-center gap-1.5">
-        <Label htmlFor="email">Email</Label>
-        <Input type="email" id="email" v-model="email" placeholder="Email" />
-      </div>
-
       <Button type="submit">Add</Button>
     </div>
   </form>
@@ -53,21 +38,23 @@ const { toast } = useToast();
 
 const firstName = ref("");
 const lastName = ref("");
-const cellPhone = ref("");
-const email = ref("");
 
 const add = async () => {
   const request = {
     firstName: firstName.value,
     lastName: lastName.value,
-    cellPhone: cellPhone.value,
-    email: email.value,
   };
 
   const { data: hero } = await useFetch<Hero>("/api/hero", {
     method: "POST",
     body:request,
   });
+
+  if (!hero.value) {
+    return toast({
+      description: "Something went wrong",
+    });
+  }
 
   toast({
     description: "Hero added successfully",
