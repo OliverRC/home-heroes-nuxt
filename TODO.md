@@ -15,16 +15,19 @@ Home page
 - All a new hero to be added -->
 
 
-Add last name 
-Add cell phone
-Add ID number
 
----------------------------
+Add cell phone (optional)
+Add ID number (optional)
+
+---
 
 Add leave days
 Record when it goes is changed
 
+Show leave audit
+
+----
+
 Add basic salary information
 - Basic salary
 - Work out UIF
-

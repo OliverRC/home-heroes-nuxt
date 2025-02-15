@@ -14,23 +14,26 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
-    "@nuxtjs/tailwindcss": "^6.12.0",
-    "drizzle-kit": "^0.20.17",
-    "nuxt": "^3.11.2",
-    "pg": "^8.11.5",
-    "shadcn-nuxt": "^0.10.2",
-    "tsx": "^4.7.2",
-    "typescript": "^5.4.5"
+    "@nuxtjs/tailwindcss": "^6.13.1",
+    "@types/pg": "^8.11.11",
+    "drizzle-kit": "^0.30.4",
+    "nuxt": "^3.15.4",
+    "pg": "^8.13.3",
+    "shadcn-nuxt": "^0.11.3",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
   },
   "dependencies": {
-    "@neondatabase/serverless": "^0.9.1",
-    "@vueuse/core": "^10.9.0",
-    "class-variance-authority": "^0.7.0",
-    "clsx": "^2.1.0",
-    "drizzle-orm": "^0.29.5",
-    "lucide-vue-next": "^0.372.0",
-    "radix-vue": "^1.7.1",
-    "tailwind-merge": "^2.3.0",
+    "@neondatabase/serverless": "^0.10.4",
+    "@nuxtjs/color-mode": "^3.5.2",
+    "@vueuse/core": "^12.7.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "dotenv": "^16.4.7",
+    "drizzle-orm": "^0.39.3",
+    "lucide-vue-next": "^0.475.0",
+    "radix-vue": "^1.9.14",
+    "tailwind-merge": "^3.0.1",
     "tailwindcss-animate": "^1.0.7"
   }
 }
